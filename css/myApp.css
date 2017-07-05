@@ -1,0 +1,13 @@
+body{ background:#fff; }
+.logo{ text-align:center;margin-top:3%; }
+.logo img{ width:280px; }
+header{ background:#00AEFF;text-align:center;color:#fff;padding:2.5% 0;position:fixed;top:0px;left:0px;right:0pc;z-index:100; }
+.back{ position:absolute;left:10px; }
+.view-1,.view-2,.view-3,.view-4{ display:none; }
+.view-block{ height:37px; }
+.view-list{  }
+.view-pbottom{ margin-bottom:45px; }
+.weui-media-box__hd img{ width:100%;border-radius:3px; }
+
+
+

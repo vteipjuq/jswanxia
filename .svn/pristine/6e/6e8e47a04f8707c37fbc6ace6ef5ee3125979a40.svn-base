@@ -1,0 +1,141 @@
+var Jswanxia={
+	login:function(){
+		api.openWin({
+		    name: 'main',
+		    url: './html/main.html',
+		    pageParam: {
+		        name: 'test'
+		    }
+		});
+	},
+	reg:function(){
+		alert("000");
+	},
+	nav:function(){
+		var NVTabBar = api.require('NVTabBar');
+		NVTabBar.open({
+		    styles: {
+		        bg: '#fff',
+		        h: 50,
+		        dividingLine: {
+		            width: 0.5,
+		            color: '#000'
+		        },
+		        badge: {
+		            bgColor: '#ff0',
+		            numColor: '#fff',
+		            size: 6.0,
+		            fontSize:10 //数字类型,设置徽章字体大小,默认10。注意:仅支持iOS。
+		        }
+		    },
+		    items: [{
+		        w: api.winWidth / 4.0,
+		        bg: {
+		            marginB: 0,
+		            image: 'rgba(0,0,0,0)'
+		        },
+		        iconRect: {
+		            w: 25.0,
+		            h: 25.0,
+		        },
+		        icon: {
+		            normal: 'fs://res/NVTabBar/icon1.png',
+		            highlight: 'fs://res/NVTabBar/icon2.png',
+		            selected: 'fs://res/NVTabBar/icon3.png'
+		        },
+		        title: {text: '信息',size: 12.0,normal: '#696969',selected: '#00AEFF',marginB: 6.0}
+		    }, {
+		        w: api.winWidth / 4.0,
+		        bg: {
+		            marginB: 0,
+		            image: 'rgba(0,0,0,0)'
+		        },
+		        iconRect: {
+		            w: 25.0,
+		            h: 25.0,
+		        },
+		        icon: {
+		            normal: 'fs://res/NVTabBar/icon2.png',
+		            highlight: 'fs://res/NVTabBar/icon21.png',
+		            selected: 'fs://res/NVTabBar/icon23.png'
+		        },
+		        title: {text: '通讯录',size: 12.0,normal: '#696969',selected: '#00AEFF',marginB: 6.0}
+		    }, {
+		        w: api.winWidth / 4.0,
+		        bg: {
+		            marginB: 0,
+		            image: 'rgba(0,0,0,0)'
+		        },
+		        iconRect: {
+		            w: 25.0,
+		            h: 25.0,
+		        },
+		        icon: {
+		            normal: 'fs://res/NVTabBar/icon3.png',
+		            highlight: 'fs://res/NVTabBar/icon31.png',
+		            selected: 'fs://res/NVTabBar/icon32.png'
+		        },
+		        title: {text: '发现',size: 12.0,normal: '#696969',selected: '#00AEFF',marginB: 6.0}
+		    }, {
+		        w: api.winWidth / 4.0,
+		        bg: {
+		            marginB: 0,
+		            image: 'rgba(0,0,0,0)'
+		        },
+		        iconRect: {
+		            w: 25.0,
+		            h: 25.0,
+		        },
+		        icon: {
+		            normal: 'fs://res/NVTabBar/icon3.png',
+		            highlight: 'fs://res/NVTabBar/icon31.png',
+		            selected: 'fs://res/NVTabBar/icon32.png'
+		        },
+		        title: {text: '我',size: 12.0,normal: '#696969',selected: '#00AEFF',marginB: 6.0}
+		    }],
+		    selectedIndex: 0
+		}, function(ret, err) {
+			if(ret.eventType=="show"){
+				$('.view-1').show();
+			}
+		    if (ret.eventType=="click" && ret.index==0) {
+		    	$('.view-1').show();
+		    	$('.view-2').hide();
+		    	$('.view-3').hide();
+		    	$('.view-4').hide();
+		    }else if(ret.eventType=="click" && ret.index==1){
+		    	$('.view-2').show();
+		    	$('.view-1').hide();
+		    	$('.view-3').hide();
+		    	$('.view-4').hide();
+		    }else if(ret.eventType=="click" && ret.index==2){
+		    	$('.view-3').show();
+		    	$('.view-1').hide();
+		    	$('.view-2').hide();
+		    	$('.view-4').hide();
+		    }else if(ret.eventType=="click" && ret.index==3){
+		    	$('.view-4').show();
+		    	$('.view-1').hide();
+		    	$('.view-2').hide();
+		    	$('.view-3').hide();
+		    }
+		});
+	},
+	chat:function(){
+		api.openWin({
+		    name: 'chat',
+		    url: '../html/chat.html',
+		    pageParam: {
+		        name: 'test'
+		    }
+		});
+	}
+};
+var jswx=Object.create(Jswanxia);
+apiready = function(){
+	var titleName=$("title").text();
+	if(titleName=="home"){
+		jswx.nav();
+	}
+	
+}
